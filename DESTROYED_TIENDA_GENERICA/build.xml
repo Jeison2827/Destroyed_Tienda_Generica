@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="DESTROYED_TIENDA_GENERICA">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../Users/Juan Ossa/eclipse/java-2021-09/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="16"/>
+    <property name="source" value="16"/>
+    <path id="DESTROYED_TIENDA_GENERICA.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <path id="run.AplMain.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <path id="run.ventana_agregar_clientes.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <path id="run.ventana_configuracion.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <path id="run.ventana_gestion_ventas.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <path id="run.ventana_agregar_productos.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <path id="run.ventana_agregar_provedores.classpath">
+        <path refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="DESTROYED_TIENDA_GENERICA.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AplMain">
+        <java classname="co.edu.unbosque.controller.AplMain" failonerror="true" fork="yes">
+            <classpath refid="run.AplMain.classpath"/>
+        </java>
+    </target>
+    <target name="ventana_agregar_clientes">
+        <java classname="co.edu.unbosque.view.ventana_agregar_clientes" failonerror="true" fork="yes">
+            <classpath refid="run.ventana_agregar_clientes.classpath"/>
+        </java>
+    </target>
+    <target name="ventana_configuracion">
+        <java classname="co.edu.unbosque.view.ventana_configuracion" failonerror="true" fork="yes">
+            <classpath refid="run.ventana_configuracion.classpath"/>
+        </java>
+    </target>
+    <target name="ventana_gestion_ventas">
+        <java classname="co.edu.unbosque.view.ventana_gestion_ventas" failonerror="true" fork="yes">
+            <classpath refid="run.ventana_gestion_ventas.classpath"/>
+        </java>
+    </target>
+    <target name="ventana_agregar_productos">
+        <java classname="co.edu.unbosque.view.ventana_agregar_productos" failonerror="true" fork="yes">
+            <classpath refid="run.ventana_agregar_productos.classpath"/>
+        </java>
+    </target>
+    <target name="ventana_agregar_provedores">
+        <java classname="co.edu.unbosque.view.ventana_agregar_provedores" failonerror="true" fork="yes">
+            <classpath refid="run.ventana_agregar_provedores.classpath"/>
+        </java>
+    </target>
+</project>
